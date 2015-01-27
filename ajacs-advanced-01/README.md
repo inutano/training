@@ -10,7 +10,7 @@ Database Center for Life Science (DBCLS)
 Tazro Ohta  
 t.ohta@dbcls.rois.ac.jp
 
-Prepared for AJACSa三島
+Prepared for AJACSa三島  
 January 27, 2015
 
 ----
@@ -315,7 +315,7 @@ Galaxyではデータや履歴、ワークフローを保存したり、ユー�
 
 ----
 
-このワークフローは配列断片の両端をシーケンスするPaired-Endのデータを入力として想定されています。Paired-Endの場合はforward/reverseそれぞれにファイルが2つ作られますが、今回はSingle-Endのデータとします。  2つある「Input dataset」のどちらか片方を消して、残った「Input dataset」のボックス右側のボタンをドラッグ＆ドロップで「SAM-to-BAM」のボックスに繋げます。
+このワークフローは配列断片の両端をシーケンスするPaired-Endのデータを入力として想定されています。Paired-Endの場合はforward/reverseそれぞれにファイルが2つ作られますが、今回はそれらをマッピングした結果のsamファイルを入力とするので、入力データは1つです。2つある「Input dataset」のどちらか片方を消して、残った「Input dataset」のボックス右側のボタンをドラッグ＆ドロップで「SAM-to-BAM」のボックスに繋げます。
 
 ![connect](http://gyazo.com/ad64ec157767d2bb3e277e45336747f9.png)
 
@@ -333,7 +333,7 @@ Galaxyではデータや履歴、ワークフローを保存したり、ユー�
 
 ----
 
-ワークフローに含まれるツールの中には実行時にパラメータを要求するものがあります。このワークフローでは、変異をフィルタリングする場合におけるアレル頻度のしきい値と、出力ファイル名に利用するためのサンプル名が必要です。アレル頻度を要求するのはワークフロー中の「Annotation」の項目で、これは「Annovar」というソフトウェアのフィルタ機能を利用しています。AnnovarのフィルタではdbSNPや1000人ゲノムプロジェクトによって蓄積された変異の頻度情報を利用して、コモンな変異を取り除きます。今回は0.05%以上の頻度のものを除くように設定して実行します。Annovarについて詳しい情報は[こちら](http://www.openbioinformatics.org/annovar/)をご覧下さい。
+ワークフローに含まれるツールの中には実行時にパラメータを要求するものがあります。このワークフローでは、変異をフィルタリングする場合におけるアレル頻度のしきい値と、出力ファイル名に利用するためのサンプル名が必要です。アレル頻度を要求するのはワークフロー中の「Annotation」の項目で、これは「Annovar」というソフトウェアのフィルタ機能を利用しています。AnnovarのフィルタではdbSNPや1000人ゲノムプロジェクトによって蓄積された変異の頻度情報を利用して、コモンな変異を取り除きます。今回は5%以上の頻度のものを除くように設定して実行します。Annovarについて詳しい情報は[こちら](http://www.openbioinformatics.org/annovar/)をご覧下さい。
 
 ![added_parameters](http://gyazo.com/f8ce14bcf0cb5bf850ac75a563a9ffe4.png)
 
@@ -341,13 +341,13 @@ Galaxyではデータや履歴、ワークフローを保存したり、ユー�
 
 確認したら、中央パネルの一番下の「Run Workflow」をクリックします。
 
-![click_run_button]()
+![click_run_button](http://gyazo.com/30a6cc4a8bfe5141b091081b1c12144b.png)
 
 ----
 
 ワークフローが実行されました。あとは待つだけです。
 
-![running](http://gyazo.com/8973d4fdcece303fc1a63cca24cd0ee6.png)
+![running](http://gyazo.com/0da2ed2d9af14390729af744a536c32d.png)
 
 ----
 
