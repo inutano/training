@@ -1,4 +1,4 @@
-# GalaxyによるNGS解析
+# データ解析プラットフォーム Galaxyの使い方
 
 情報・システム研究機構  
 ライフサイエンス統合データベースセンター  
@@ -30,16 +30,19 @@ March 5, 2015
 
 今回の講習では、コンピュータを使って以下の内容について説明します。
 
--	データについて
--	データ処理について
-	-	データ処理の種類
-		-	マッピング
-		-	アセンブル
-	-	DDBJパイプラインの使い方
--	データ解析について
-	-	データ解析の種類
-		-	ゲノム多型解析
-	-	Galaxyの使い方
+- Galaxyについて
+  - The Galaxy Project
+	- Public Servers
+- Pitagora-Galaxy Projectについて
+  - Pitagora Network
+	- Galaxy Workshop Tokyo 2015のお知らせ
+- GalaxyでNGSデータ解析
+  - NGSデータ解析について
+	  - データ処理の種類
+		- データ解析の種類
+	- RNA-Seqデータ解析 (実習)
+	  - データフォーマットについて
+		- Galaxy Workflowの使い方
 
 ----
 
