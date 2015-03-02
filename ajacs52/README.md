@@ -22,9 +22,7 @@ March 5, 2015
 
 ## 概要
 
-本講習は、主に新型DNAシーケンサー(High-Throughput Sequencer, HTS)から得られる塩基配列データを対象に、データ解析に必要な基本的な知識と、オープンソースで公開されているデータ解析システムGalaxyを利用した解析の手順を学びます。
-
-----
+本講習では、ウェブブラウザを通して利用するフリーのデータ解析プラットフォームであるGalaxyの利用方法について学びます。[Galaxy Project](http://galaxyproject.org)の概要を紹介したのち、NGSデータの解析を例として、Galaxyの実習を行います。実習では、日本国内におけるGalaxyユーザによる[Pitagora Galaxy Project](http://www.pitagora-galaxy.org)で開発されたマシンイメージを利用します。
 
 ## 講習の流れ
 
@@ -44,7 +42,41 @@ March 5, 2015
 	  - データフォーマットについて
 		- Galaxy Workflowの使い方
 
-----
+
+## Galaxyについて
+
+生命科学分野におけるデータ解析では、複数のツールを組み合わせたデータ解析ワークフローを構築し、異なるサンプルをそれぞれ処理するという作業が発生します。Galaxyは、そのようなデータ解析における作業をウェブブラウザを通して実行するためのデータ解析プラットフォームです。
+
+### The Galaxy Project
+
+Galaxyは誰でも無料で利用できるデータ解析プラットフォームです。Galaxyを利用することによって、ワークフローの構築と実行だけでなく、解析の履歴管理、ワークフローや解析結果の共有、そして過去のデータ解析の再実行などを行うことができます。Galaxyには2つの利用方法があります。
+
+#### 1. Public Serverを利用する
+
+世界中の様々な機関によって、Galaxyをインストールしたウェブサーバが公開されています。それぞれのPublic Serverでアカウントを申請することで、そのサーバ上でデータ解析を行うことができます。ただし、インストールされているツールが機関によって異なったり、ユーザごとに保存できるデータサイズに上限が定められていることがあります。国内ではDBCLS, DDBJ, Pitagora-Galaxy Projectによって公開サーバが運用されています。
+
+- [Publicly Accessible Galaxy Servers](https://wiki.galaxyproject.org/PublicGalaxyServers)
+  - Galaxy Projectに認知されているPublic Serverのリスト
+- [usegalaxy.org](https://usegalaxy.org)
+  - Galaxy ProjectによってホストされているPublic Server
+- [DBCLS Galaxy](http://galaxy.dbcls.jp)
+  - DBCLSによって運用されているPublic Server
+- [DDBJ Galaxy](http://p-galaxy.ddbj.nig.ac.jp)
+  - DDBJによって運用されているPublic Server
+- [Pitagora Galaxy Test Server](http://try.pitagora-galaxy.org/galaxy/)
+  - Pitagora Galaxy ProjectによるマシンイメージをテストするためのPublic Server
+
+
+#### 2. 自分の環境にGalaxyをインストールして利用する
+
+もう1つは、専用のGalaxyサーバを用意することです。一般的なLinuxやMac OSが搭載されたコンピュータであれば、インストールはそれほど難しくありません。インターネットにアップロードできないデータを解析したい場合や、自身で必要なツールをインストールしたい場合は、自分専用のGalaxy環境をセットアップしましょう。
+
+- [Galaxy Download and Install](https://wiki.galaxyproject.org/Admin/GetGalaxy)
+  - とても簡単にインストールができます。
+
+自身でセットアップと運用管理をする自信がないという場合は、後述するPitagora Galaxy Projectのマシンイメージを利用してみてください。
+
+
 
 ## データについて
 
