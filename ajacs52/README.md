@@ -167,7 +167,7 @@ NGSに興味のある方はもちろん、今のところNGSをやる予定の�
 
 いずれもファイル形式はプレーンテキストです。しかし、ファイルが大きすぎるとアプリケーションがクラッシュしてしまうので、メモ帳やMicrosoft Office Excelのようなアプリケーションで開くことはお勧めしません。
 
-### FASTQ
+#### FASTQ
 
 新型シーケンサから得られる塩基配列断片は「リード」と呼ばれます。1回のシーケンス(1Run)からは機械によって数百〜数十億本のシーケンスリードが得られます。FASTQフォーマットは、1本1本のリードの塩基配列と1塩基ごとのクオリティを記述します。FASTQフォーマットは、4行で1リードの情報を記述します。
 
@@ -196,7 +196,7 @@ CCCFFFFFHHHHHIJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJIJJJJJJJJJHIJJJJIJJJJIJJJJJHJHHHH
 [参考: FASTQ format / Wikipedia](http://en.wikipedia.org/wiki/FASTQ_format)
 
 
-#### Phred Quality Score
+##### Phred Quality Score
 
 FASTQフォーマットで記述される塩基配列のクオリティはPhred Quality Scoreを示す記号で表されます。リードの1塩基ごとに、「その塩基を読み取った(BaseCall)精度」を記述します。
 
@@ -210,7 +210,7 @@ FASTQフォーマットで記述される塩基配列のクオリティはPhred 
 [参考: Phred quality score / Wikipedia](http://en.wikipedia.org/wiki/Phred_quality_score)
 
 
-### FASTA
+#### FASTA
 
 FASTAはDNA塩基配列を記述するために最もシンプルで一般的なフォーマットです。塩基配列だけでなくアミノ酸配列もこのフォーマットで記述されます。BLASTなどのtradな塩基配列解析においてもよく用いられます。2行で1本の塩基配列を記述します。1行目は">"から始まるコメント、2行目は塩基配列です。
 
@@ -225,7 +225,7 @@ FLFLIKHNPTNTIVYFGRYWSP
 [参考: FASTA format description](http://genetics.bwh.harvard.edu/pph/FASTA.html)
 
 
-### SAM/BAM
+#### SAM/BAM
 
 新型シーケンサのデータ解析では、得られたリードがゲノムDNAのどの領域に由来するのかを調べるために「マッピング」という操作を行います。これは「リファレンス・マッピング」とも呼ばれます。リファレンス、つまり既に読まれたゲノム配列と、リードのデータをマッピング・ツールに与えると、どのリードがどの領域にアラインメントされたかを示すデータが得られます。SAM(Sequence Alignment/Map format)フォーマットは、このデータを記述するためのもので、BAMフォーマットは、SAMをバイナリ形式に変換したものです。
 
@@ -234,29 +234,25 @@ FLFLIKHNPTNTIVYFGRYWSP
 
 ### Galaxy Workflowの使い方
 
-今回の講習ではピタゴラギャラクシープロジェクトのテストサイト[try.pitagora-galaxy.org](http://try.pitagora-galaxy.org/galaxy/)を利用します。
+今回の講習ではピタゴラギャラクシープロジェクトのテストサイト[try.pitagora-galaxy.org](http://try.pitagora-galaxy.org:8080/)を利用します。
 
 ![try-pitagora](http://gyazo.com/177405173fae108a778677259f76d916.png)
 
-----
-
-### Galaxyの基本的な使い方
+#### Galaxyの基本的な使い方
 
 Galaxyの画面は常に左サイドバー、中央のブラウザ、右サイドバーに三分割されています。左サイドバーは利用できるツールのリストです。中央のブラウザは選択中のツールをコントロールしたり結果を見るために使います。右サイドバーでは、ツールを実行するごとにプロセスがスタックして、履歴として機能します。履歴表示だけでなく、それぞれのプロセスの情報を見たり、再実行したりできます。
 
 ![galaxy-ss](http://gyazo.com/2e7c840ca43c4aacfec29c1cfd7809d6.png)
 
-----
+#### アカウントの作成
 
-### アカウントの作成
+(今回の講習ではtryアカウントでログインしますので、このステップは飛ばします)
 
-[本家Galaxy]のウェブサイトの右上の「User」をクリックして、「Register」をクリックします。Emailアドレス、パスワード、名前を入力してから「Submit」をクリックします。しばらく待つとメールが届くので、メールの中のアクティベーションのURLをクリックして、confirmしたあと、作成したアカウントでログインします。
+自らGalaxyをセットアップした場合や他のPublic Serverを使う際には、ユーザアカウントを作成する必要があります。右上の「User」をクリックして、「Register」をクリックします。Emailアドレス、パスワード、名前を入力してから「Submit」をクリックします。しばらく待つとメールが届くので、メールの中のアクティベーションのURLをクリックして、confirmしたあと、作成したアカウントでログインします。
 
 ![create-account](http://gyazo.com/0a94312f2302baff73fc133f5db3170b.png)
 
-----
-
-### データのインポート
+#### データのインポート
 
 先ほどと同じく[こちらのページ](https://www.dropbox.com/sh/vj019i2zwf653t3/AADhYOSz3HRi2GBlDFH_0Sn2a?dl=0)から「demo.fastq」というデータをダウンロードします。Galaxyの左パネルの「Get Data」をクリックして、開いたリストの一番上にある「Upload File」をクリックするとダイアログが開くので、「Choose local file」をクリックしてダウンロードしたdemo.fastqファイルを選択します。リストの「Genome」をクリックして、「Human Feb. 2009 (hg19)」を選択したら、「Start」をクリックします。しばらく待つと完了するので、「Close」をクリックします。
 
