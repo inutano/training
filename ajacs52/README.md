@@ -254,17 +254,16 @@ Galaxyの画面は常に左サイドバー、中央のブラウザ、右サイ�
 
 #### データのインポート
 
-先ほどと同じく[こちらのページ](https://www.dropbox.com/sh/vj019i2zwf653t3/AADhYOSz3HRi2GBlDFH_0Sn2a?dl=0)から「demo.fastq」というデータをダウンロードします。Galaxyの左パネルの「Get Data」をクリックして、開いたリストの一番上にある「Upload File」をクリックするとダイアログが開くので、「Choose local file」をクリックしてダウンロードしたdemo.fastqファイルを選択します。リストの「Genome」をクリックして、「Human Feb. 2009 (hg19)」を選択したら、「Start」をクリックします。しばらく待つと完了するので、「Close」をクリックします。
+このページの上にある「demo.fastq」というデータをクリックして、「RAW」ボタンを右クリックしてリンク先のファイルをダウンロードします。Galaxyの左パネルの「Get Data」をクリックして、開いたリストの一番上にある「Upload File」をクリックするとダイアログが開くので、「Choose local file」をクリックしてダウンロードしたdemo.fastqファイルを選択します。リストの「Genome」をクリックして、「Human Feb. 2009 (hg19)」を選択したら、「Execute」をクリックします。しばらく待つと完了するので、「Close」をクリックします。
 
-![import-data](http://gyazo.com/baef9e108d341998b57e920bad879a5b.png)
+![import-data](http://gyazo.com/b65182b9ab0e08990abed8408fc726c9.png)
 
-----
 
 目玉ボタンをクリックしてみましょう。インポートが完了したデータの様子です。
 
 ![imported](http://gyazo.com/e4ccd26ba42ae96206c75f5a31a59a48.png)
 
-----
+
 
 ### FastQCを実行する
 
@@ -272,21 +271,21 @@ Galaxyの画面は常に左サイドバー、中央のブラウザ、右サイ�
 
 ![fastqc](http://gyazo.com/3285d55b88827aba4d2949eafbc0de54.png)
 
-----
+
 
 実行が完了したら、目玉ボタンをクリックします。FastQCの結果を見ることができます。
 
 ![fastqc-done](http://gyazo.com/be7b677e1d0e9be85fc917003386b269.png)
 
-----
+
 
 ### 履歴やワークフローの共有
 
 ツールを選択して実行すると、その実行結果が右パネルにスタックしていきます。初期設定では「Unnamed history」となっていますが、これに名前をつけたり、履歴を他のユーザと共有したり、履歴において実行したツールの組み合わせからワークフローを構築することができます。右パネルの右上にある歯車のアイコンをクリックして、履歴に関するメニューを表示します。
 
-![history_management](http://gyazo.com/992db7e62c79022e23b1c3bb79b2669c.png)
+![history_management](http://gyazo.com/7df8a08beaabf82285e9ac94fb5d1c25.png)
 
-----
+
 
 ### 新規ワークフローの作成
 
@@ -294,7 +293,7 @@ FastQCを実行した履歴からワークフローを作成してみましょ�
 
 ![create_workflow](http://gyazo.com/6f7a03b57d272f6ffcb4a93eba1baf42.png)
 
-----
+
 
 ### 作成したワークフローの実行
 
@@ -302,95 +301,96 @@ FastQCを実行した履歴からワークフローを作成してみましょ�
 
 ![run_workflow](http://gyazo.com/05f66a9bae7ef204536a5f73aca97fb8.png)
 
-----
+
 
 ### ワークフローのインポート
 
-Galaxyではデータや履歴、ワークフローを保存したり、ユーザ間で共有するだけでなく、Galaxyサーバを通じて公開することができます。ここでは、他のユーザによって公開されているワークフローを利用してデータ解析を行ってみます。まず、画面上部の「Shared Data」をクリックして「Published Workflow」をクリックします。
+Galaxyではデータや履歴、ワークフローを保存したり、ユーザ間で共有するだけでなく、Galaxyサーバを通じて公開することができます。ここでは、ピタゴラネットワークによって共有されているワークフローを利用してデータ解析を行ってみます。まず、画面上部の「Shared Data」をクリックして「Published Workflow」をクリックします。
 
-![published-workflow](http://gyazo.com/5a32a7ad6a9eb347fe24da8c357710f8.png)
+![published-workflow](http://gyazo.com/69fc81d0c584149fdba99cfaaef7f7bf.png)
 
-----
 
-### Exome Sequencing Workflow
 
-左上の検索ボックスに「exome」と入力してエンターキーを押します。表示された「Exome Analysis」をクリックします。ワークフローの概要が表示されるので、右上のフロッピーディスクアイコンの隣にある緑色の+ボタンをクリックします。この操作は、ログインしていないとできないため、失敗した場合はログインできているかを画面上部の「User」から確認してください。
+### RNA-Seq Workflow
 
-![workflow-detail](http://gyazo.com/dcd266543e799aafad092967662f1044.png)
+「RNA-seq 01」をクリックします。ワークフローの概要が表示されるので、右上のフロッピーディスクアイコンの隣にある緑色の+ボタンをクリックします。この操作は、ログインしていないとできないため、失敗した場合はログインできているかを画面上部の「User」から確認してください。
 
-----
+![workflow-detail](http://gyazo.com/862b08a964e0ecf298c1a87d151f0283.png)
+
+
 
 完了しました。「start using this workflow」をクリックします。
 
-![done](http://gyazo.com/7b90fd4fa9396c54f8055972658bcfbe.png)
+![done](http://gyazo.com/9b3eafc9db8c9f2cc19a723a61ae5f21.png)
 
-----
+
 
 ### ワークフローを編集する
 
-表示されたページで再び「Exome Analysis」をクリックして「View」をクリックすると、詳細を見ることができます。このワークフローでは、FASTQデータを入力として、BWAによるマッピングを行ったのち、多型を検出するツールを実行しています。しかし、BWAの操作は時間がかかるので、DDBJのパイプラインで予め処理した結果のSAMファイルを入力データとして用いることで、このステップをはぶきます。まず、[こちらのページ](https://github.com/inutano/training/ajacs-advanced-01)から、demo.samをダウンロードします(このデータのオリジナルは[こちら](http://trace.ddbj.nig.ac.jp/DRASearch/run?acc=SRR975299))。これを先ほどと同じ手順でgalaxyにインポートしてから、画面上部の「Workflow」をクリックして再度ワークフローのページを表示します。「Imported: Exome Analysis」をクリックして、「Edit」をクリックします。
+表示されたページで再び「RNA-seq 01」をクリックして「View」をクリックすると、詳細を見ることができます。このワークフローでは、FASTQデータを入力として、TopHat2によるマッピングを行ったのち、cufflinks, cuffdiffによって発現量の異なるものを検出します。このワークフローがどのような処理を行うのかをダイアグラムで確認してみます。
+
+画面上部の「Workflow」をクリックして再度ワークフローのページを表示します。「Imported: RNA-seq 01」をクリックして、「Edit」をクリックします。
 
 ![workflow](http://gyazo.com/6f4552370aee627688a88d2cc240703c.png)
 
-----
 
-ワークフロー・エディターが表示されます。表示されている「Map with BWA for Illumina」のボックスの✕ボタンをクリックしてこのプロセスを消します。
+ワークフロー・エディターが表示されます。ここでは、ワークフローの編集をすることができます。例えば、もう既にFastQCは実行したので必要ない、という場合にはこのワークフローからFastQCを消したりすることができます。
 
-![workflow-editor](http://gyazo.com/888a21b61ed6623764575d0b443cad1b.png)
+![workflow-editor](http://gyazo.com/eb482477d3f33dd603747c0f5e57c1b9.png)
 
-----
+### サンプルデータを入手する
 
-消えた様子です。
+ワークフローの詳細は、ピタゴラギャラクシーのウェブサイトにも詳しく掲載されています。 http://wiki.pitagora-galaxy.org/wiki/index.php/Workflow_RNA-seq_01 にアクセスして、どのような処理を行うかを確認します。
 
-![eliminated](http://gyazo.com/3ff991ff9cb03aeb3b9d936abcc9437b.png)
+![rna-seq-wf](http://gyazo.com/79fa3657762ac3b5f9d7347c09eca503.png)
 
-----
+また、テストデータが用意されています。ページに書いてある通り、GalaxyはURLからファイルをダウンロードすることもできます。これに従ってファイルをアップロードしてみましょう。
 
-このワークフローは配列断片の両端をシーケンスするPaired-Endのデータを入力として想定されています。Paired-Endの場合はforward/reverseそれぞれにファイルが2つ作られますが、今回はそれらをマッピングした結果のsamファイルを入力とするので、入力データは1つです。2つある「Input dataset」のどちらか片方を消して、残った「Input dataset」のボックス右側のボタンをドラッグ＆ドロップで「SAM-to-BAM」のボックスに繋げます。
+![test-data](http://gyazo.com/bddb861e3d4ab13a25039d8ce1b769a0.png)
 
-![connect](http://gyazo.com/ad64ec157767d2bb3e277e45336747f9.png)
 
-----
+アップロードが完了しました。
 
-エディタ右上の歯車ボタンを押して「save」をクリックします。そのあと、同じく歯車ボタンを押して「Run」をクリックします。
+![uploaded](http://gyazo.com/6f274561c4aa15f6bf1652b51fe291a9.png)
 
-![save](http://gyazo.com/876e9066f1abed8afd91a678d90389aa.png)
+### ワークフローを実行する
 
-----
+先ほどと同様に画面上部の「Workflow」から「RNA-seq 01」を選択して「Run」をクリックすると、ワークフローが読み込まれ入力ファイルを選択する状態になります。アップロードしたファイルを入力ファイルとして選択します。
 
-表示されたワークフローの入力ファイルとして「demo.sam」を選択します。ファイルが表示されない場合はアップロードが完了していない場合があるので、しばらく待って右パネル歯車アイコンの左にある「Reflesh history」をクリックするか、再度データアップロードをしてみてください。データがアップロードされたら、実行されるツール群とその情報を見てみましょう。
+![start-running-workflow](http://gyazo.com/232dabebf17413463eebb8e4b29ac306.png)
 
-![edited-workflow](http://gyazo.com/8b6bfcf88cdff6136cdac6e38583e657.png)
+ワークフローに含まれるツールの中には実行時にパラメータを要求するものがありますが、今回は特に指定せずに実行します。確認したら、中央パネルの一番下の「Run Workflow」をクリックします。
 
-----
-
-ワークフローに含まれるツールの中には実行時にパラメータを要求するものがあります。このワークフローでは、変異をフィルタリングする場合におけるアレル頻度のしきい値と、出力ファイル名に利用するためのサンプル名が必要です。アレル頻度を要求するのはワークフロー中の「Annotation」の項目で、これは「Annovar」というソフトウェアのフィルタ機能を利用しています。AnnovarのフィルタではdbSNPや1000人ゲノムプロジェクトによって蓄積された変異の頻度情報を利用して、コモンな変異を取り除きます。今回は5%以上の頻度のものを除くように設定して実行します。Annovarについて詳しい情報は[こちら](http://www.openbioinformatics.org/annovar/)をご覧下さい。
-
-![added_parameters](http://gyazo.com/f8ce14bcf0cb5bf850ac75a563a9ffe4.png)
-
-----
-
-確認したら、中央パネルの一番下の「Run Workflow」をクリックします。
-
-![click_run_button](http://gyazo.com/30a6cc4a8bfe5141b091081b1c12144b.png)
-
-----
+![select_parameters](http://gyazo.com/7b7b7a1e70a19d70365b0de5f595d6dc.png)
 
 ワークフローが実行されました。あとは待つだけです。
 
-![running](http://gyazo.com/0da2ed2d9af14390729af744a536c32d.png)
+![running](http://gyazo.com/9481c484d29f289bfb79ca96ce0737c9.png)
 
-----
 
-データを確認してみましょう。フィルタリングの結果、1つだけ変異が見つかりました。今回はデモデータのためこの結果に意味はありませんが、基本的には同じ手順で複数のサンプルのシーケンスデータを解析することで、目的とする変異を見つけることができます。
+完了したら、データを確認してみましょう！
 
-![confirmation](http://gyazo.com/34f5df5b8c6b313fb55a3ece81b62390.png)
+![confirmation](http://gyazo.com/4e7a508e895e542c5356d747887f82c9.png)
+
+## お知らせ&宣伝
 
 ### NGS現場の会
 
-[NGS現場の会](http://www.ngs-field.org)は新型シーケンサを利用した研究に関わる人が集まる研究会です。アカデミア、企業、研究者、テクニシャン、学生などなどの垣根のいっさいない情報交換のための会を目指しています。データ解析で困ったときに助けてくれる人もいます。第四回研究会が2015年7月1日〜3日につくば国際会議場にて行われますので、ご興味のある方は是非ご参加ください(参加登録開始は2月中旬を予定しています)。
+[NGS現場の会](http://www.ngs-field.org)は新型シーケンサを利用した研究に関わる人が集まる研究会です。アカデミア、企業、研究者、テクニシャン、学生などなどの垣根のいっさいない情報交換のための会を目指しています。データ解析で困ったときに助けてくれる人もいます。第四回研究会が2015年7月1日〜3日につくば国際会議場にて行われますので、ご興味のある方は是非ご参加ください。もうまもなく参加登録が始まる予定ですので、詳しい情報は[メーリングリスト](https://groups.google.com/forum/#!forum/ngs-field)に登録頂いてご確認ください。
 
-![ngs-genbanokai](http://gyazo.com/9587ff44815076cb7b8a17d0ab000064.png)
+![ngs-genbanokai](http://gyazo.com/436dfb67f4876e63e691b3367806248e.png)
+
+### お花見メタゲノムプロジェクト
+
+NGS現場の会第四回研究会では、「全国のソメイヨシノの細菌叢サンプルをみんなで集めてシーケンスする」プロジェクトを行います。現在、サンプリング協力者を募集中ですので、特に遠方にお花見に行かれる方は是非ご協力ください！
+
+![omg-seq](http://gyazo.com/70b21e49c0981c894aa74a9b34673970.png)
+
+### Galaxy Workshop Tokyo 2015
+
+本日紹介したPitagora-Galaxyの開発とコミュニティ運用を行っているPitagora-Networkが主体となってGalaxyのワークショップを開催します。NGS解析を行う全ての人が対象となっています。是非ご参加ください！詳しくはこちら http://wiki.pitagora-galaxy.org/wiki/index.php/Galaxy_Workshop_Tokyo_2015
+
+![galaxyworkshoptokyo](http://gyazo.com/fce911fdea831066bd0c984f1168ab44.png)
 
 ## 以上で終了です！
 
