@@ -30,26 +30,31 @@ March 5, 2015
 
 - Galaxyについて
   - The Galaxy Project
-	- Public Servers
+  - Public Servers
 - Pitagora-Galaxy Projectについて
   - Pitagora Network
-	- Galaxy Workshop Tokyo 2015のお知らせ
+  - Galaxy Workshop Tokyo 2015のお知らせ
 - GalaxyでNGSデータ解析
   - NGSデータ解析について
 	  - データ処理の種類
-		- データ解析の種類
-	- RNA-Seqデータ解析 (実習)
-	  - データフォーマットについて
-		- Galaxy Workflowの使い方
-
+	  - データ解析の種類
+  - RNA-Seqデータ解析 (実習)
+    - データフォーマットについて
+    - Galaxy Workflowの使い方
 
 ## Galaxyについて
 
-生命科学分野におけるデータ解析では、複数のツールを組み合わせたデータ解析ワークフローを構築し、異なるサンプルをそれぞれ処理するという作業が発生します。Galaxyは、そのようなデータ解析における作業をウェブブラウザを通して実行するためのデータ解析プラットフォームです。
+生命科学分野におけるデータ解析では、複数のツールを組み合わせたデータ解析ワークフローを構築し、異なるサンプルに対して繰り返し処理をするという作業が発生します。Galaxyは、そのようなデータ解析における作業をウェブブラウザを通して実行するためのデータ解析プラットフォームです。
+
+![honke](http://gyazo.com/9fde98c4f2f9f271aeddc6697fc30b81.png)
 
 ### The Galaxy Project
 
-Galaxyは誰でも無料で利用できるデータ解析プラットフォームです。Galaxyを利用することによって、ワークフローの構築と実行だけでなく、解析の履歴管理、ワークフローや解析結果の共有、そして過去のデータ解析の再実行などを行うことができます。Galaxyには2つの利用方法があります。
+GalaxyはPenn Stateのメンバーを中心としたGalaxyチームによって開発されています。プロジェクトのトップページのURLは [galaxyproject.org](http://galaxyproject.org) です。
+
+![galaxyproject.org](http://gyazo.com/b1127469dc5bbf730858af2d2cc5cda8.png)
+
+Galaxyは誰でも無料で利用できるデータ解析プラットフォームです。Galaxyを利用することによって、ワークフローの構築と実行だけでなく、解析の履歴管理、ワークフローや解析結果の共有、そして過去のデータ解析の再実行などを行うことができます。Galaxyには2つの利用方法があります;
 
 #### 1. Public Serverを利用する
 
@@ -73,25 +78,94 @@ Galaxyは誰でも無料で利用できるデータ解析プラットフォー�
 
 - [Galaxy Download and Install](https://wiki.galaxyproject.org/Admin/GetGalaxy)
   - とても簡単にインストールができます。
+- [Galaxy Docker Image](https://github.com/bgruening/docker-galaxy-stable)
+  - Dockerがインストールされている方は `docker run -d -p 8080:80 -p 8021:21 bgruening/galaxy-stable` で http://localhost:8080 に起動します。
+  - Dockerが何かわからない方は[こちら](https://speakerdeck.com/inutano/bh14-dot-14-team-docker-wrap-up)をご覧頂くか、Google先生に訊いてみてください。
 
-自身でセットアップと運用管理をする自信がないという場合は、後述するPitagora Galaxy Projectのマシンイメージを利用してみてください。
+自身でセットアップと運用管理をする自信がないという場合は、次に紹介するPitagora Galaxy Projectのマシンイメージを利用してみてください。
+
+## Pitagora-Galaxy Projectについて
+
+[Pitagora-Galaxy Project](http://www.pitagora-galaxy.org)は、日本国内のGalaxyユーザが集まるPitagora-Networkが主体となって進めるプロジェクトです。このプロジェクトでは、各ラボで使っているツールやワークフローを持ち寄って、それらが初めからインストールされているGalaxyを配布しています。また一ヶ月に1〜2回、Galaxy Community Meetupを開催して、Galaxyの運用や開発、データ解析についての情報交換を行っています。
+
+配布しているGalaxy環境は、Virtual Machine (VM) のマシンイメージとして開発されています。VMとは、コンピュータのOSの上に仮想的に別のOSを立ち上げて、その上でアプリケーションを動かす仮想環境のことです。利用するためには、仮想環境が起動できるクラウド環境か、仮想環境を起動するためのソフトウェア ([VirtualBox](http://virtualbox.org/)など) をインストールすることが必要です。
+
+Pitagora-Galaxyの使い方は3つあります;
+
+1. テストサイトを利用する
+  - テスト用にPublic Serverが稼働しています
+2. VMをダウンロードして手元のコンピュータで動かす
+  - 最も一般的な利用方法です
+3. Amazon Web Service (AWS) で公開されているAMI (Amazon Machine Image) を使う
+  - AWSの利用料はかかりますが、クラウド上に構築した計算機の上でGalaxyを起動できます
+
+トップページには、それぞれの使い方の解説のページへのリンクがあります。 http://www.pitagora-galaxy.org にアクセスして、リンクをクリックして内容を見てみましょう。
+
+![pitagora-top](http://gyazo.com/c25b0f2c8673bf351e05d83f9d91eaf8.png)
+
+### Pitagora-Network
+
+ピタゴラギャラクシープロジェクトは、有志によるオープンソースプロジェクトとして発足しており、特定の機関や組織に依存しているわけではありません。国内のGalaxyユーザが情報交換を行う場として、様々な大学、研究機関から色々な立場の方が参加されています。興味のある方は、是非一度ご連絡ください。ピタゴラネットワークの活動については、[pitagora wiki](http://wiki.pitagora-galaxy.org/wiki/index.php/Main_Page)をご覧ください。
+
+![pitagora-wiki](http://gyazo.com/932be06667404f14285173e4669d11fe.png)
+
+### Galaxy Workshop Tokyo 2015
+
+## GalaxyでNGSデータ解析
+
+### NGSデータ解析について
+
+NGSのデータから生物学的な知見を見出すために必要な作業は、シーケンサから出力された生の配列断片を変換するデータ処理のステップと、その後に続く多型解析や遺伝子発現の定量などを行う解析のステップに分かれます。
+
+#### データ処理の種類
+
+新型シーケンサから得られる一次データ（シークエンスリードデータ）は、そのままでは何の情報も持たないため、情報解析を行うことができません。そのため、データ解析を行う前にデータ処理を行う必要があります。代表的なものは以下の2つです。
+
+- マッピング
+    - ゲノム塩基配列やCDSなどを参照配列（リファレンス）として、それぞれのリードがどの領域から得られたかを調べる
+- アセンブル
+    - 参照配列がない場合などに、リード同士の端の部分の相同性を元にリードを繋ぎあわせコンティグ配列を得る
+
+どちらの処理も、リードの長さや数、リファレンス配列の大きさ、計算機の性能や並列化などに応じて計算時間が変わります。
+
+##### DDBJパイプラインの使い方
+
+ゲノムサイズやシーケンスのスループットによっては，データ処理に必要なリソースが手元のコンピュータでは賄えないことがあります。そのような場合にはDDBJが提供している「[DDBJ Read Annotation Pipeline](http://p.ddbj.nig.ac.jp/)」を通じて遺伝研スパコンを利用することができます。使い方については以下の資料を参考にしてください。
+
+- [Pipeline Tutorial](http://www.ddbj.nig.ac.jp/search/help/pipeline-tutorial-j.html)
+- [統合TV](http://togotv.dbcls.jp/ja/)
+    - [今日からはじめるDDBJ Read Annotation Pipeline](http://togotv.dbcls.jp/20100617.html)
+    - [DDBJ Read Annotation Pipelineによるde novo Assembly解析](http://togotv.dbcls.jp/20110226.html#p01)
+- [DDBJパイプラインとGalaxyによるデータ解析](https://github.com/inutano/training/tree/master/ajacs51)
+
+#### データ解析の種類
+
+新型シーケンサから得られたデータは、マッピング、アセンブルなどのデータ処理を行ったあと、それぞれの目的に応じた解析を行うことで、サンプルの持つ特徴的なゲノム領域をリストアップしたり、サンプル間の差を比べたりすることができます。新型シーケンサを用いた実験は、どのようなシーケンサを使うか（リードの数や長さ）、どのようにサンプルDNAを得るかによって区別することができます。サンプルDNAの抽出方法を工夫することで様々な情報をハイスループットに得られることが新型シーケンサが強力なツールとして用いられる理由ですが、そのシーケンシングの種類は非常に多岐にわたります([*-Seq](http://applications.illumina.com/applications/sequencing/ngs-library-prep/library-prep-methods.html#.VIEmdL6Hq2w))。それぞれの目的に応じた解析の手順と、それに用いられる代表的なツールは、既存研究の論文やオンラインフォーラムで調べることができます。
+
+![*-Seq](http://gyazo.com/9fa560a57003974dbd21ab0b74f48654.png)
 
 
+### データ解析の種類
 
-## データについて
+それぞれのシーケンシングにおける解析については、[次世代シークエンス解析スタンダード〜NGSのポテンシャルを活かしきるWET&DRY](http://www.amazon.co.jp/dp/4758101914/ref=cm_sw_r_tw_dp_40sGub0Q8C567)という書籍にもまとめられています。各シーケンスのライブラリ調製から丁寧に解説してあるため、非常に参考になります。困った時は人に聞いたり調べたりする前に、この本を読めばだいたい解決します。ラボに1冊では足りません。1人1冊持っておいて損はありませんし、もう1冊買って、先輩や後輩の机にそっと置いておきましょう。とてもおすすめです。
+
+![dritoshi-book](http://gyazo.com/783282872dfc90d3b03226a7da1f1596.png)
+
+NGSに興味のある方はもちろん、今のところNGSをやる予定のない人も今すぐ買って読んでみてください。
+
+## RNA-Seqデータ解析 (実習)
+
+### データフォーマットについて
 
 今回の講習では新型DNAシーケンサーから得られる塩基配列データを取り扱います。塩基配列データは様々な形式でファイルに保存されます。今回のデータ解析に関連するデータ形式(フォーマット)は以下のようなものです。
 
 -	FASTQ
 - FASTA
 - SAM
-- VCF
 
 その他の主要なフォーマットについては、[こちら](http://genome.ucsc.edu/FAQ/FAQformat.html)をご参照ください。
 
 いずれもファイル形式はプレーンテキストです。しかし、ファイルが大きすぎるとアプリケーションがクラッシュしてしまうので、メモ帳やMicrosoft Office Excelのようなアプリケーションで開くことはお勧めしません。
-
-----
 
 ### FASTQ
 
@@ -121,7 +195,6 @@ CCCFFFFFHHHHHIJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJIJJJJJJJJJHIJJJJIJJJJIJJJJJHJHHHH
 
 [参考: FASTQ format / Wikipedia](http://en.wikipedia.org/wiki/FASTQ_format)
 
-----
 
 #### Phred Quality Score
 
@@ -136,7 +209,6 @@ FASTQフォーマットで記述される塩基配列のクオリティはPhred 
 
 [参考: Phred quality score / Wikipedia](http://en.wikipedia.org/wiki/Phred_quality_score)
 
-----
 
 ### FASTA
 
@@ -152,7 +224,6 @@ FLFLIKHNPTNTIVYFGRYWSP
 
 [参考: FASTA format description](http://genetics.bwh.harvard.edu/pph/FASTA.html)
 
-----
 
 ### SAM/BAM
 
@@ -160,83 +231,12 @@ FLFLIKHNPTNTIVYFGRYWSP
 
 [参考: Hts-specs by samtools](http://samtools.github.io/hts-specs/)
 
-----
 
-### VCF
+### Galaxy Workflowの使い方
 
-VCF(Variant Call Format)は、ゲノム上の塩基配列多型の位置とそのIDや精度を記述するためのフォーマットです。データの他に、日付やデータを生成したプログラム名、リファレンス配列などを記述するメタ情報を含みます。リファレンス配列にマッピングされたリードの情報を多型解析プログラムに入力すると、この形式のファイルが生成されます。
+今回の講習ではピタゴラギャラクシープロジェクトのテストサイト[try.pitagora-galaxy.org](http://try.pitagora-galaxy.org/galaxy/)を利用します。
 
-[参考: File Specifications - The Global Alliance Data Working Group File Formats Task Team](http://ga4gh.org/#/fileformats-team)
-
-----
-
-## データ処理について
-
-新型シーケンサから得られる一次データ（シークエンスリードデータ）は、そのままでは何の情報も持たないため、情報解析を行うことができません。そのため、データ解析を行う前にデータ処理を行う必要があります。代表的なものは以下の2つです。
-
-- マッピング
-    - ゲノム塩基配列やCDSなどを参照配列（リファレンス）として、それぞれのリードがどの領域から得られたかを調べる
-- アセンブル
-    - 参照配列がない場合などに、リード同士の端の部分の相同性を元にリードを繋ぎあわせコンティグ配列を得る
-
-どちらの処理も、リードの長さや数、リファレンス配列の大きさ、計算機の性能や並列化などに応じて計算時間が変わります。
-
-----
-
-### DDBJパイプラインの使い方
-
-ゲノムサイズやシーケンスのスループットによっては，データ処理に必要なリソースが手元のコンピュータでは賄えないことがあります。そのような場合にはDDBJが提供している「[DDBJ Read Annotation Pipeline](http://p.ddbj.nig.ac.jp/)」を通じて遺伝研スパコンを利用することができます。使い方については以下の資料を参考にしてください。
-
-- [Pipeline Tutorial](http://www.ddbj.nig.ac.jp/search/help/pipeline-tutorial-j.html)
-- [統合TV](http://togotv.dbcls.jp/ja/)
-    - [今日からはじめるDDBJ Read Annotation Pipeline](http://togotv.dbcls.jp/20100617.html)
-    - [DDBJ Read Annotation Pipelineによるde novo Assembly解析](http://togotv.dbcls.jp/20110226.html#p01)
-- [DDBJパイプラインとGalaxyによるデータ解析](https://github.com/inutano/training/tree/master/ajacs51)
-
-----
-
-## データ解析について
-
-新型シーケンサから得られたデータは、マッピング、アセンブルなどのデータ処理を行ったあと、それぞれの目的に応じた解析を行うことで、サンプルの持つ特徴的なゲノム領域をリストアップしたり、サンプル間の差を比べたりすることができます。新型シーケンサを用いた実験は、どのようなシーケンサを使うか（リードの数や長さ）、どのようにサンプルDNAを得るかによって区別することができます。サンプルDNAの抽出方法を工夫することで様々な情報をハイスループットに得られることが新型シーケンサが強力なツールとして用いられる理由ですが、そのシーケンシングの種類は非常に多岐にわたります([*-Seq](http://applications.illumina.com/applications/sequencing/ngs-library-prep/library-prep-methods.html#.VIEmdL6Hq2w))。それぞれの目的に応じた解析の手順と、それに用いられる代表的なツールは、既存研究の論文やオンラインフォーラムで調べることができます。
-
-![*-Seq](http://gyazo.com/9fa560a57003974dbd21ab0b74f48654.png)
-
-----
-
-### データ解析の種類
-
-それぞれのシーケンシングにおける解析については、[次世代シークエンス解析スタンダード〜NGSのポテンシャルを活かしきるWET&DRY](http://www.amazon.co.jp/dp/4758101914/ref=cm_sw_r_tw_dp_40sGub0Q8C567)という書籍にもまとめられています。各シーケンスのライブラリ調製から丁寧に解説してあるため、非常に参考になります。困った時は人に聞いたり調べたりする前に、この本を読めばだいたい解決します。1人1冊持っておいて損はありません。おすすめです。
-
-![dritoshi-book](http://gyazo.com/783282872dfc90d3b03226a7da1f1596.png)
-
-----
-
-### NGS現場の会
-
-[NGS現場の会](http://www.ngs-field.org)は新型シーケンサを利用した研究に関わる人が集まる研究会です。アカデミア、企業、研究者、テクニシャン、学生などなどの垣根のいっさいない情報交換のための会を目指しています。データ解析で困ったときに助けてくれる人もいます。第四回研究会が2015年7月1日〜3日につくば国際会議場にて行われますので、ご興味のある方は是非ご参加ください(参加登録開始は2月中旬を予定しています)。
-
-![ngs-genbanokai](http://gyazo.com/9587ff44815076cb7b8a17d0ab000064.png)
-
-----
-
-### Galaxyの使い方
-
-Galaxyは複数のツールを組み合わせたデータ解析ワークフローを構築するための、オープンソースで公開されているウェブ・ベースの解析プラットフォームです。新型シーケンサのデータ解析に限らず、さまざまな生命科学のデータ解析のために、世界中で広く利用されています。
-
-Galaxyには2つの使い方があります。1つは、Public Galaxy Serverと呼ばれる、世界中で様々な機関によって公開されているサーバを使う方法です。日本ではDBCLS, DDBJ, Pitagora-Galaxyプロジェクトなどによって誰でも利用できるサーバが公開されています。
-
-もう1つの使い方は、自分でGalaxyのサーバを起動する方法です。大量のデータを生み出し大規模にデータを解析する研究室では、専用のGalaxyを立ち上げて利用しています。
-
-- [Galaxy Project](https://usegalaxy.org)
-- [Galaxy 101: The first thing you should try](https://usegalaxy.org/u/aun1/p/galaxy101)
-
-----
-
-### 本家Galaxy
-
-今回の講習では本家である[usegalaxy.org](https://usegalaxy.org)を利用します。
-
-![honke](http://gyazo.com/9fde98c4f2f9f271aeddc6697fc30b81.png)
+![try-pitagora](http://gyazo.com/177405173fae108a778677259f76d916.png)
 
 ----
 
@@ -390,35 +390,11 @@ Galaxyではデータや履歴、ワークフローを保存したり、ユー�
 
 ![confirmation](http://gyazo.com/34f5df5b8c6b313fb55a3ece81b62390.png)
 
-----
+### NGS現場の会
 
-### ちょっとマニアックな話: usegalaxy.orgの後ろ側はどうなっているのか
+[NGS現場の会](http://www.ngs-field.org)は新型シーケンサを利用した研究に関わる人が集まる研究会です。アカデミア、企業、研究者、テクニシャン、学生などなどの垣根のいっさいない情報交換のための会を目指しています。データ解析で困ったときに助けてくれる人もいます。第四回研究会が2015年7月1日〜3日につくば国際会議場にて行われますので、ご興味のある方は是非ご参加ください(参加登録開始は2月中旬を予定しています)。
 
-本家GalaxyのPublic Serverは世界中の人から利用されているため、単一の計算機システムでは対応できません。負荷を分散するため、US国内の複数のデータセンターに接続しているそうです。詳しくは昨年の[Biological Data Science 2014](http://meetings.cshl.edu/meetings/2014/data14.shtml)でのJames Taylorによる[こちら](https://speakerdeck.com/jxtx/adventures-in-scaling-galaxy-at-biological-data-science-2014)のスライドをご覧ください。
-
-![adventures_in_scaling_galaxy](http://gyazo.com/63fcb3086244c292638dfba6fc76c264.png)
-
-![distribution_among_us](http://gyazo.com/87956e458af84bc90b801d73a52e3594.png)
-
-----
-
-### もっとマニアックな話: Docker で Galaxy
-
-推奨環境でGalaxy環境をセットアップするためのDocker Container ImageをGalaxyコミッタの1人であるBjörn Grüningが公開してくださっています。GitHubのレポジトリは[こちら](https://github.com/bgruening/docker-galaxy-stable)です。コンテナは以下のコマンドで起動できます。
-
-```sh
-docker run -d -p 8080:80 -p 8021:21 bgruening/galaxy-stable
-```
-
-----
-
-### Pitagora-Galaxy
-
-Galaxyはこのように、ウェブブラウザで誰でも簡単にデータ解析ができるようになっています。しかし、自分のラボで独自のGalaxyを使いたいという場合には、まっさらな状態からのツールのインストールや、ワークフローの構築が難しいという難点があります。そこで、日本国内のGalaxyユーザが集まってお互いのワークフローを持ち寄って、簡単にインストールできる形で配るというプロジェクトが始まりました。それが[Pitagora Galaxy](http://www.pitagora-galaxy.org)です。誰でも使えるテストサイトもありますが、「Oracle VirtualBox」と呼ばれるフリーのソフトウェアを使って簡単にGalaxyを自分のコンピュータにインストールすることができます。また、Amazon Web Service上で動くクラウド版もあります。
-
-![pg](http://gyazo.com/2ff7ed946475c60484d3004a781a69c5.png)
-
-----
+![ngs-genbanokai](http://gyazo.com/9587ff44815076cb7b8a17d0ab000064.png)
 
 ## 以上で終了です！
 
