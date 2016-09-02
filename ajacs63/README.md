@@ -82,7 +82,7 @@ Database Center for Life Science (DBCLS), Joint Support-Center for Data Science 
 
 ![NGS sample to figure](./images/ngs_flow_0.png)
 
-この講習では、シーケンサから出力された一次データに生物学的な注釈付を行うまでを「データ処理」、その後の統計処理などを「データ解析」と呼び分けています。人によっては両者をまとめて「データ解析」と呼ぶ場合もあります。(この講習の次の[NGSデータから新たな知識を導出するための高次解析](https://github.com/AJACS-training/AJACS62/tree/master/05_ozaki)では、データ処理の部分を「低次解析」、データ解析の部分を「高次解析」と呼んでいます)ソフトウェアによってはデータ処理とデータ解析を一括で行うものもあります。
+この講習では、シーケンサから出力された一次データに生物学的な注釈付を行うまでを「データ処理」、その後の統計処理などを「データ解析」と呼び分けています。人によっては両者をまとめて「データ解析」と呼ぶ場合もあります。ソフトウェアによってはデータ処理とデータ解析を一括で行うものもあります。
 
 ![NGS sample to figure with location](./images/ngs_flow_1.png)
 
