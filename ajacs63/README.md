@@ -80,9 +80,10 @@ Database Center for Life Science (DBCLS), Joint Support-Center for Data Science 
 
 このように、一口に「新型シーケンサーを使う」と言っても目的に応じて解釈までに様々な異なるステップを経る必要があります。目的がはっきりしていなければデータが出ても何をしていいのか分からなくなってしまいますし、逆に、目的に応じて様々な使い方をすることができる機械であるとも言えます。
 
-![NGS sample to figure](./images/ngs_flow_0.png)
+![NGS sample to figure](./images/seq_flow_05.png)
+![NGS sample to figure](./images/seq_flow_06.png)
 
-この講習では、シーケンサから出力された一次データに生物学的な注釈付を行うまでを「データ処理」、その後の統計処理などを「データ解析」と呼び分けています。人によっては両者をまとめて「データ解析」と呼ぶ場合もあります。ソフトウェアによってはデータ処理とデータ解析を一括で行うものもあります。
+この講習では、シーケンサから出力された一次データに生物学的な注釈付を行うまでを「データ処理」、その後の統計処理などを「データ解析」と呼び分けています。人によっては両者をまとめて「データ解析」と呼ぶ場合もあります。ソフトウェアによってはデータ処理とデータ解析を一括で行うものもあります。データ処理をされる前、シーケンサーから得られた生のデータを「一次データ (primary data)」, データ処理、データ解析の過程で経られるデータを「二次データ」と呼びます。あくまでもこの講習において説明するための区別で、別の講習や書籍では異なる区分をする場合もあります。
 
 ![NGS sample to figure with location](./images/ngs_flow_1.png)
 
@@ -116,7 +117,7 @@ DNA抽出の方法を工夫することで、新型シーケンサーの高い�
 
 新型シーケンサのデータは一次データ (リード) から Assemble, Reference Alignment などのデータ処理、特徴抽出やアノテーションなどのデータ解析を経る中で、様々なファイルフォーマットで保存されます。ソフトウェアごとにどのフォーマットを入力/出力にするかが大抵の場合決まっているので、フォーマットを理解しておくことが重要です。
 
-各フォーマットの詳しい説明については、この後の理研尾崎さんの講習で触れられるため今回は割愛します。
+フォーマットには色々な種類があるため、手に入れたデータをどのように見ていいか分からない場合は、オンラインで公開されているファイルフォーマットの仕様を参照してください。ゲノムブラウザでお馴染みのUCSCに、データフォーマットについてまとめられたページがあり便利です。[https://genome.ucsc.edu/FAQ/FAQformat.html](https://genome.ucsc.edu/FAQ/FAQformat.html)
 
 ----
 
@@ -253,7 +254,110 @@ SRAに登録されたデータを再利用したい場合には、データを�
 
 ![EBI RNA-Seq](./images/ebi-rna.png)
 
-EBI RNA-Seq Analysis API は、SRAに登録されたもののうち、264生物種、265,000のシーケンスデータを解析した結果データを取得することができるサービスです。bigWig, bedGraph, FPKM, TPM などの情報を取ることができます (が、現在サービスが停止しているようでアクセスができません…)。
+EBI RNA-Seq Analysis API [http://www.ebi.ac.uk/fg/rnaseq/api/](http://www.ebi.ac.uk/fg/rnaseq/api/) は、SRAに登録されたもののうち、264生物種、265,000のシーケンスデータを解析した結果データを取得することができるサービスです。bigWig, bedGraph, FPKM, TPM などの情報を取ることができます。
+
+API とは "Application Programming Interface" の略で、コンピューター・プログラムからアクセスされることを意図してデザインされたシステムであることを意味します。そのため、通常のウェブサイトのような綺麗な見た目や検索機能などはありません。しかし、APIのアクセスパターンを理解すれば、プログラムが書けなくてもウェブブラウザでデータを取得することができます。さらに、Shell Script や Ruby, Python などの比較的簡単なプログラミング言語を覚えれば、より効率よく処理を行うことができます。(興味のある人はトライしてみてください。たのしいよ！)
+
+EBI RNA-Seq Analysis API の 仕様書は [http://www.ebi.ac.uk/fg/rnaseq/api/doc](http://www.ebi.ac.uk/fg/rnaseq/api/doc) にあります。EBI RNA-Seq Analysis API は EBI の遺伝子発現データベースである Expression Atlas の一部として開発されています。論文は以下を参照してください。
+
+[Petryszak, Robert, et al. "Expression Atlas update—an integrated database of gene and protein expression in humans, animals and plants." Nucleic acids research (2015): gkv1045.](http://nar.oxfordjournals.org/content/44/D1/D746.full.pdf+html)
+
+EBI RNA-Seq Analysis API は以下の4つの種類のデータを取得することができます。
+
+- Analysis Results Per Run
+- Analysis Results Per Study
+- Sample Attributes Per Run
+- Baseline Expression Per Gene - for Tissue, Cell Type, Developmental Stage, Sex and Strain
+
+それぞれ、アクセスするURLのパターンによって欲しいデータを取得することができます。例として、"Baseline Expression Per Gene" 機能で遺伝子ごとのデータを取得してみましょう。以下のURLにウェブブラウザでアクセスしてみてください。
+
+[http://www.ebi.ac.uk/fg/rnaseq/api/tsv/50/getExpression/homo_sapiens/POU5F1](http://www.ebi.ac.uk/fg/rnaseq/api/tsv/50/getExpression/homo_sapiens/POU5F1)
+
+> Mac/Linuxなら「ターミナル」を開いて、  
+curl "http://www.ebi.ac.uk/fg/rnaseq/api/tsv/50/getExpression/homo_sapiens/POU5F1"  
+と打ち込んでみてください。
+
+![ebi rnaseq api](./images/ebi_rnaseq_01.png)
+
+こんな結果が表示されます。画面に表示されたデータは tsv (tab separated values) です。これをそのままコピー・アンド・ペーストで Google Spreadsheet なんかに貼り付けて見るのがよいでしょう。自分のパソコンに保存したい場合は、画面上で右クリックして「名前を付けて保存」をするとよいです。この場合は "ebirnaseq.expression.50.homo_sapiens.POU5F1.tsv" なんて名前を付けてみてはどうでしょう。
+
+このAPIでは取得したいデータの条件をURLの中に埋め込んでいきます。このURLに埋め込まれた条件は次の通りです。
+
+- http://
+  - ハイパーテキストトランスファープロトコルです。
+- www.ebi.ac.uk/fg/rnaseq/api
+  - EBI RNA-Seq Analysis API のサービスの base URL です。
+- /tsv
+ -  フォーマットを tsv に指定しています。 json にもできます。
+- /50
+  - minimum number of runs の値です。APIは条件に合致したエントリ(プロジェクト)を返しますが、エントリごとにRunの数が違います。この値は、表示するエントリをRun数で絞り込むことができます。50を指定することで「50回以上シーケンスRunのあるエントリを表示」という条件になります。
+- /getExpression
+  - 4つの機能のうちの Expression Per Gene のデータを取得することを示します。
+- /homo_sapiens
+  - 生物種を指定しています。
+- /POU5F1
+  - 遺伝子名を gene symbol で指定しています。
+
+上のURLをちょっと変更することで別のデータを取得することができます。色々なデータを取得して比べてみたり、別のデータと組み合わせてみたりしてみてください。
+
+- json 形式にしてみる
+  - http://www.ebi.ac.uk/fg/rnaseq/api/json/50/getExpression/homo_sapiens/POU5F1
+- Run数での絞り込みをやめてみる
+  - http://www.ebi.ac.uk/fg/rnaseq/api/json/0/getExpression/homo_sapiens/POU5F1
+- 別の遺伝子にしてみる
+  - http://www.ebi.ac.uk/fg/rnaseq/api/json/50/getExpression/homo_sapiens/SOX2
+- 別の生物種にしてみる
+  - http://www.ebi.ac.uk/fg/rnaseq/api/json/50/getExpression/mus_musculus/pou5f1
+
+表示されたデータの最後のカラムには "ALL_SAMPLE_ATTRIBUTES" というカラム名でURLが各行に埋め込まれています。これはサンプルの情報を取得するためのAPIのURLです。1つ選んでアクセスしてみましょう。
+
+![ebi rnaseq api](./images/ebi_rnaseq_02.png)
+
+[http://www.ebi.ac.uk/fg/rnaseq/api/tsv/getSampleAttributesByCondition/1373](http://www.ebi.ac.uk/fg/rnaseq/api/tsv/getSampleAttributesByCondition/1373)
+
+![ebi rnaseq api](./images/ebi_rnaseq_03.png)
+
+表示されたのはエントリに含まれるシーケンスRunとそのサンプルの情報です。STUDY ID と Run ID は SRA ID ですね。Run ID を使って、発現量のカウントを実行した後のデータが取れないかやってみましょう。 "Analysis Results Per Run" を使います。以下のURLにアクセスしてみてください。
+
+[http://www.ebi.ac.uk/fg/rnaseq/api/tsv/70/getRun/ERR1041424](http://www.ebi.ac.uk/fg/rnaseq/api/tsv/70/getRun/ERR1041424)
+
+![ebi rnaseq api](./images/ebi_rnaseq_05.png)
+
+いくつかURLが表示されますが、 ".bw" で終わるftpのURLをコピーしましょう。 ".bw" は bigWig ファイルであることを示す拡張子です (bigWigフォーマットについては[こちら](https://genome.ucsc.edu/FAQ/FAQformat.html#format6.1))。ここではこのファイルを可視化するためにゲノムブラウザである [Integrative Genomics Viewer](http://software.broadinstitute.org/software/igv/) を使ってみます(デモ時のバージョンは2.3.81です)。
+
+先ほどの getRun の結果のページのデータ中に、ゲノムのバージョンはGRCh38であると書いてあるので、 IGV でもゲノムは GRCh38 を選択します。ダウンロードしたての IGV には hg18 と hg19 しか含まれていないので、初回だけゲノムデータをダウンロードする必要があります。
+
+IGV では URL を入力するとデータを取得し、表示してくれる機能がありますが、今回のデータはサイズが大きくタイムアウトエラー (ファイルの取得に時間がかかりすぎる) が出て怒られるので、 bigWig データを手元にダウンロードします。ブラウザで URL にアクセスするだけでデータのダウンロードが始まります。データのダウンロードが完了したら、 IGV のメニューから File > Load from File... を選択し、ダウンロードした bigWig ファイルを選択します。
+
+![view bigWig on igv](./images/igv_01.png)
+
+IGV を開いて GRCh38 を選択したところです。
+
+![view bigWig on igv](./images/igv_02.png)
+
+メニューから File > Load from File... を選んで
+
+![view bigWig on igv](./images/igv_03.png)
+
+ダウンロードした .bw ファイルを選びます。
+
+![view bigWig on igv](./images/igv_04.png)
+
+読み込まれました。
+
+![view bigWig on igv](./images/igv_05.png)
+
+読み込まれたトラックで右クリックを押して "Auto Scale" を選択しておきます。
+
+![view bigWig on igv](./images/igv_06.png)
+
+POU5F1 の様子を見てみましょう。検索ボックスに POU5F1 と入力します。
+
+![view bigWig on igv](./images/igv_07.png)
+
+遺伝子発現のデータが表示されました！
+
+このように、SRAに登録されている発現データを自分で解析しなくても、APIを使ってアクセスし、データをダウンロードすることで、手元で可視化したり、他のデータと比較したりすることができます。
 
 ----
 
