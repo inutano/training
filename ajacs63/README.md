@@ -1,7 +1,7 @@
 # 次世代シーケンスデータベースの使い方
 
 Prepared for AJACS63 (AJACS東女医大)  
-September 12, 2016
+12 Sep 2016
 
 大田達郎  
 Tazro Ohta  
