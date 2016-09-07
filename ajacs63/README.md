@@ -108,7 +108,7 @@ DNA抽出の方法を工夫することで、新型シーケンサーの高い�
 
 それぞれのシーケンシング・アプリケーションにおける実験手技およびデータ処理・解析については、[次世代シークエンス解析スタンダード〜NGSのポテンシャルを活かしきるWET&DRY](http://www.amazon.co.jp/dp/4758101914/ref=cm_sw_r_tw_dp_40sGub0Q8C567)という書籍にもまとめられています。各シーケンス・アプリケーションがライブラリ調製から丁寧に解説してあり、非常に参考になります。新型シーケンサーについて日本語の情報が必要な場合はまずこの一冊を購入しましょう。
 
-![dritoshi-book](./images/itoshisaninzeidenikuogottekure.png)
+![dritoshi-book](./images/itoshisantoshocarddenikuogottekure.png)
 
 ### 得られるデータについて
 
